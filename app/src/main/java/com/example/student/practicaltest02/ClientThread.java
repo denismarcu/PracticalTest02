@@ -45,20 +45,11 @@ public class ClientThread extends Thread {
             String line = "";
             while( (line = bufferedReader.readLine()) != null ) {
                 result += line;
-            }
-            final String finalResult = result;
-            resultTextView.post(new Runnable() {
-                @Override
-                public void run() {
-                    resultTextView.setText(finalResult);
-                }
-            });
-            while ((result = bufferedReader.readLine()) != null) {
-                final String finalizedInformation = result;
+                final String finalResult = result;
                 resultTextView.post(new Runnable() {
                     @Override
                     public void run() {
-                        resultTextView.setText(finalizedInformation);
+                        resultTextView.setText(finalResult);
                     }
                 });
             }
